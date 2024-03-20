@@ -17,13 +17,13 @@ public class EntitySaveController {
     private EntitySaveService service;
 
     @PostMapping("/send")
-    public void triggerRandomUpdate(@RequestBody String jsonMessage) {
+    public void triggerConsumerSave(@RequestBody String jsonMessage) {
         try {
             log.info("Triggering kafka message with: {}", jsonMessage);
             service.triggerSaveMessage(jsonMessage);
 
         } catch (Exception e) {
-            log.error("Error triggering random update", e);
+            log.error("Error triggering message", e);
 
         }
     }
